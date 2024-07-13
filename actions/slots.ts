@@ -17,35 +17,55 @@ const fetchoptions = (method: string, params: any) => {
 export const getSlot = async () => {
   const options = fetchoptions("getSlot", []);
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
 export const getSlotLeader = async () => {
   const options = fetchoptions("getSlotLeader", []);
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
-export const getSlotLeaders = async (start: number, end: number) => {
-  const options = fetchoptions("getSlotLeaders", [start, end]);
+export const getSlotLeaders = async () => {
+  const slotId = await getSlot();
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  const options = fetchoptions("getSlotLeaders", [slotId, 5]);
+  // const options = fetchoptions("getSlotLeaders", [start, end]);
+
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
 export const getClusterNodes = async () => {
+  // next cache yapısını engelle
   const options = fetchoptions("getClusterNodes", []);
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response.result.length))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result.length;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };

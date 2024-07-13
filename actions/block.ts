@@ -73,8 +73,12 @@ export const getRecentBlockhash = async () => {
 export const getSupply = async () => {
   const options = fetchoptions("getSupply", []);
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };

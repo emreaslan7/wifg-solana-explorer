@@ -1,14 +1,10 @@
-const solanaWeb3 = require("@solana/web3.js");
+export const trimAddreses = (str: string): string => {
+  if (str.length <= 6) {
+    return str; // String 6 karakterden kısa ise doğrudan döndür
+  }
 
-export const getConnection = async () => {
-  const rpc =
-    "https://solana-mainnet.g.alchemy.com/v2/dF4muOUGi8elv850X5bzudbyriq_gAc8";
+  const firstThree = str.substring(0, 3); // Baştan ilk 3 harfi al
+  const lastThree = str.substring(str.length - 3); // Sondan son 3 harfi al
 
-  const connection = new solanaWeb3.Connection(rpc, "confirmed");
-
-  console.log(connection);
-
-  let slot = await connection.getSlot(); // getting the most recent slot number
-  console.log("The latest slot number is", slot); // logging the most recent slot number
-  return connection;
+  return `${firstThree}...${lastThree}`;
 };

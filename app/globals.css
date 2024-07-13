@@ -59,6 +59,8 @@ body,
     --foreground: 210 20% 98%;
 
     --card: 28.8 45.5% 10.8%;
+    /* --card: 31 14.4% 60.6%; */
+
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
@@ -69,7 +71,9 @@ body,
     --muted: 19.6 40.1% 26.9%;
     --muted-foreground: 217.9 10.6% 64.9%;
     --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    /* --accent-foreground: 210 20% 98%; */
+    --accent-foreground: 31 14.4% 60.6%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
     --border: 31 14.4% 60.6%;
