@@ -5,6 +5,8 @@
     WIFG is watching to you!
 
 ## Introduction
+[demo video](https://www.youtube.com/watch?v=rf7T_3GQTuw)
+
 
 #### Problem
 
@@ -39,7 +41,7 @@ A high-quality and intuitive user interface (UI) is essential for user engagemen
 
 ## Showcase
 
-[demo video](/public/showcase/wifg-solana-explorer.mp4)
+[demo video](https://www.youtube.com/watch?v=rf7T_3GQTuw)
 
 ![WIFG](/public/showcase/wifg-01.png)
 
