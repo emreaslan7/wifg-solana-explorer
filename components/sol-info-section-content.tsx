@@ -1,6 +1,14 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getTokenStatsSOL_ONEWEEK } from "@/actions/token";
 
+// sayıları formaltyacak bir fonksiyon yaz.
+// 1000 => 1,000
+// 1000000 => 1,000,000 gibi
+
+const formatNumber = (number: number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export const SolInfoSectionContent = async () => {
   const info = await getTokenStatsSOL_ONEWEEK();
   const {
@@ -24,15 +32,59 @@ export const SolInfoSectionContent = async () => {
           <TabsTrigger value="buyers">Buyers</TabsTrigger>
           <TabsTrigger value="sellers">Sellers</TabsTrigger>
         </TabsList>
-        <TabsContent value="price">
-          {latest_price} ve rate: {priceChange}
-        </TabsContent>
-        <TabsContent value="total-holders">{totalHolders}</TabsContent>
+        <div className="pt-4">
+          <TabsContent value="price">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {latest_price.toFixed(2)} $
+              </p>
+              <p
+                className={`text-3xl font-semibold ${
+                  priceChange > 0 ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {priceChange > 0 ? "+" : "-"}
+                {priceChange.toFixed(2)} %
+              </p>
+            </div>
+          </TabsContent>
+          <TabsContent value="total-holders">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {formatNumber(totalHolders)}
+              </p>
+            </div>
+          </TabsContent>
 
-        <TabsContent value="active-users">{activeUsers}</TabsContent>
-        <TabsContent value="new-users">{newUsers}</TabsContent>
-        <TabsContent value="buyers">{buyers}</TabsContent>
-        <TabsContent value="sellers">{sellers}</TabsContent>
+          <TabsContent value="active-users">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {formatNumber(activeUsers)}
+              </p>
+            </div>
+          </TabsContent>
+          <TabsContent value="new-users">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {formatNumber(newUsers)}
+              </p>
+            </div>
+          </TabsContent>
+          <TabsContent value="buyers">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {formatNumber(buyers)}
+              </p>
+            </div>
+          </TabsContent>
+          <TabsContent value="sellers">
+            <div>
+              <p className="text-7xl text-[#a99b8c] dark:text-violet-500 font-semibold">
+                {formatNumber(sellers)}
+              </p>
+            </div>
+          </TabsContent>
+        </div>
       </Tabs>
     </div>
   );

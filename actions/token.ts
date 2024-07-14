@@ -13,7 +13,7 @@ export const getTokenStatsSOL_ONEWEEK = async () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `BEARER ${process.env.HELLOMOON_BEARER_TOKEN}`,
+        Authorization: `Bearer b7e6bb25-f35b-4654-b6d1-4a8036aa05f7`,
       },
     }
   );
@@ -33,7 +33,7 @@ export const getLatestPriceWIF = async () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: `BEARER ${process.env.HELLOMOON_BEARER_TOKEN}`,
+        Authorization: `Bearer b7e6bb25-f35b-4654-b6d1-4a8036aa05f7`,
       },
     }
   );
