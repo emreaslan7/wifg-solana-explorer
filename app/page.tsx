@@ -3,6 +3,7 @@ import { SupplySection } from "@/components/supply-section";
 import { SolInfoSection } from "@/components/sol-info-section";
 import { SolVolumeSection } from "@/components/sol-volume-section";
 import { LatestBlockSection } from "@/components/latest-block-section";
+import { WifgSection } from "@/components/wifg-section";
 
 export default function Home() {
   return (
@@ -13,11 +14,13 @@ export default function Home() {
         </div>
         <div className="basis-2/3 flex flex-col gap-4">
           <div className="flex gap-4">
-            <div className="basis-1/2">
+            <div className="basis-2/3">
               <SolVolumeSection />
             </div>
-            <div className="basis-1/2">
-              <div>component</div>
+            <div className="basis-1/3">
+              <div>
+                <WifgSection />
+              </div>
             </div>
           </div>
           <div>
