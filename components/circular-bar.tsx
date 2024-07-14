@@ -1,34 +1,3 @@
-// "use client";
-// import AnimatedCircularProgressBar from "@/components/magicui/animated-circular-progress-bar";
-// import { getSupply } from "@/actions/block";
-
-// const handleIncrement = (prev: number) => {
-//   if (prev === 100) {
-//     return 0;
-//   }
-//   return prev + 10;
-// };
-// // setValue(handleIncrement);
-// // const interval = setInterval(() => setValue(handleIncrement), 2000);
-// // return () => clearInterval(interval);
-// interface CircularBarProps {
-//   rateFromServer: number;
-// }
-
-// export const CircularBar: React.FC<CircularBarProps> = async (props) => {
-//   console.log("rateFromserver", props.rateFromServer);
-
-//   return (
-//     <AnimatedCircularProgressBar
-//       max={100}
-//       min={0}
-//       value={props.rateFromServer as number}
-//       gaugePrimaryColor="#a99b8c"
-//       gaugeSecondaryColor="rgba(0, 0, 0, 0.1)"
-//     />
-//   );
-// };
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -58,7 +27,7 @@ export const CircularBar: React.FC<CircularBarProps> = (props) => {
     setValue(handleIncrement);
     const interval = setInterval(() => setValue(handleIncrement), 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [props.rateFromServer]);
 
   return (
     <AnimatedCircularProgressBar

@@ -13,7 +13,7 @@ export const SupplySectionContent = async () => {
       <div className="text-sm font-bold">Circulating Supply</div>
       <div className="flex items-end mt-0.5 mb-10">
         <p className="text-6xl text-[#a99b8c] dark:text-violet-500 font-semibold">
-          {circulating.toString().slice(0, 3)}M{" "}
+          {circulating?.toString().slice(0, 3)}M{" "}
         </p>
         <p> / {(circulating + nonCirculating).toString().slice(0, 3)}M</p>
       </div>

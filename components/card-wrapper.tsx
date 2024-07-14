@@ -1,20 +1,7 @@
-import {
-  getBlockHeight,
-  getBlockTime,
-  getRecentBlockhash,
-  getBlock,
-  getBlocks,
-} from "@/actions/block";
-import {
-  getSlot,
-  getSlotLeader,
-  getSlotLeaders,
-  getClusterNodes,
-} from "@/actions/slots";
+import { getClusterNodes } from "@/actions/slots";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
