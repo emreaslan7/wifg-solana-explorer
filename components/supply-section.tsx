@@ -1,5 +1,3 @@
-import Globe from "./magicui/globe";
-import { SlotSectionContent } from "@/components/slot-section-content";
 import { Card } from "./ui/card";
 import { SupplySectionContent } from "./supply-section-content";
 

@@ -20,16 +20,19 @@ export const getBlock = async (block: number) => {
     {
       encoding: "json",
       transactionDetails: "full",
-      rewards: true,
-      commitment: "processed",
+      commitment: "confirmed",
       maxSupportedTransactionVersion: 0,
     },
   ]);
 
-  await fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response.result.transactions[0]))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
 };
 
 export const getBlocks = async (start: number, end: number) => {
@@ -41,33 +44,17 @@ export const getBlocks = async (start: number, end: number) => {
     .catch((err) => console.error(err));
 };
 
-export const getBlockHeight = async () => {
-  const options = fetchoptions("getBlockHeight", []);
-
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-};
-
-export const getBlockTime = async (blockId: number) => {
-  const options = fetchoptions("getBlockTime", [blockId]);
-
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-};
-
 export const getRecentBlockhash = async () => {
-  const options = fetchoptions("getRecentBlockhash", [
-    { commitment: "finalized" },
-  ]);
+  const options = fetchoptions("getRecentBlockhash", []);
 
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data.result.context.slot;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
 };
 
 export const getSupply = async () => {
@@ -82,6 +69,36 @@ export const getSupply = async () => {
     return { circulating, nonCirculating, rate };
   } catch (err) {
     console.log(err);
+    return null;
+  }
+};
+
+export const getLastBlockDetails = async () => {
+  const recentBlockSlot = await getRecentBlockhash();
+  console.log("recent block slot", recentBlockSlot);
+
+  const blockData = await getBlock(recentBlockSlot);
+  return blockData;
+};
+
+export const getTransaction = async (signature: string) => {
+  const options = {
+    method: "POST",
+    headers: { accept: "application/json", "content-type": "application/json" },
+    body: JSON.stringify({
+      id: 1,
+      jsonrpc: "2.0",
+      method: "getTransaction",
+      params: [signature, { encoding: "jsonParsed" }],
+    }),
+  };
+
+  try {
+    const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.error(err);
     return null;
   }
 };
