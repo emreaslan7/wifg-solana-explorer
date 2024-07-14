@@ -86,34 +86,38 @@ export const LatestBlockSectionContent = async () => {
           <Link href={"/transactions"}>See All</Link>
         </Button>
       </div>
-      <Table className="w-full">
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Signature</TableHead>
-            <TableHead>Block</TableHead>
-            <TableHead>Time</TableHead>
-            <TableHead className="text-center">Instruction</TableHead>
-            <TableHead className="text-center">By</TableHead>
-            <TableHead className="text-center">Fee (Sol)</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {/*  create map function there */}
+      {allTxDetails ? (
+        <Table className="w-full">
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Signature</TableHead>
+              <TableHead>Block</TableHead>
+              <TableHead>Time</TableHead>
+              <TableHead className="text-center">Instruction</TableHead>
+              <TableHead className="text-center">By</TableHead>
+              <TableHead className="text-center">Fee (Sol)</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {/*  create map function there */}
 
-          {allTxDetails.map((tx, index) => {
-            return (
-              <TableRow key={index}>
-                <TableCell>{tx.signature}</TableCell>
-                <TableCell>{tx.block}</TableCell>
-                <TableCell>{tx.time}</TableCell>
-                <TableCell className="text-right">{tx.instruction}</TableCell>
-                <TableCell className="text-right">{tx.by}</TableCell>
-                <TableCell className="text-right">{tx.fee} SOL</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
+            {allTxDetails.map((tx, index) => {
+              return (
+                <TableRow key={index}>
+                  <TableCell>{tx.signature}</TableCell>
+                  <TableCell>{tx.block}</TableCell>
+                  <TableCell>{tx.time}</TableCell>
+                  <TableCell className="text-right">{tx.instruction}</TableCell>
+                  <TableCell className="text-right">{tx.by}</TableCell>
+                  <TableCell className="text-right">{tx.fee} SOL</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </Table>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };

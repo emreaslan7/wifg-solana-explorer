@@ -6,10 +6,14 @@ import lineChartBg from "@/public/volume-section/linechart.png";
 export const SolVolumeSection = () => {
   return (
     <div>
-      <Card className="relative flex  w-full overflow-hidden  px-20 pb-40 pt-8 md:pb-60 h-[234px]">
-        <SolVolumeSectionContent />
-        <div className="absolute -bottom-10 left-0 w-full bg-center bg-no-repeat bg-cover">
-          <Image src={lineChartBg} className="object-bottom" alt="" />
+      <Card className="relative flex  w-full overflow-hidden px-20 pt-8  h-[234px]">
+        <div className="flex flex-col w-full h-full items-center">
+          <div className="self-start">
+            <p className="font-semibold text-sm">Volume</p>
+            <SolVolumeSectionContent />
+          </div>
+
+          <Image src={lineChartBg} className="object-bottom" alt="linechart" />
         </div>
       </Card>
     </div>

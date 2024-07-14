@@ -1,10 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getTokenStatsSOL_ONEWEEK } from "@/actions/token";
 
-// sayıları formaltyacak bir fonksiyon yaz.
-// 1000 => 1,000
-// 1000000 => 1,000,000 gibi
-
 const formatNumber = (number: number) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
@@ -22,9 +18,11 @@ export const SolInfoSectionContent = async () => {
   } = info.data[0];
   return (
     <div>
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs defaultValue="price" className="w-[400px]">
         <TabsList>
-          <TabsTrigger value="price">Price</TabsTrigger>
+          <TabsTrigger value="price" defaultChecked>
+            Price
+          </TabsTrigger>
           <TabsTrigger value="total-holders">Total Holders</TabsTrigger>
           <TabsTrigger value="active-users">Active Users</TabsTrigger>
 
