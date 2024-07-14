@@ -76,7 +76,10 @@ export const getSupply = async () => {
   try {
     const response = await fetch(process.env.ALCHEMY_RPC_URL || "", options);
     const data = await response.json();
-    return data.result;
+    const { circulating, nonCirculating } = data.result.value;
+    const rateFull = (circulating / (circulating + nonCirculating)) * 100;
+    const rate = rateFull.toFixed(2);
+    return { circulating, nonCirculating, rate };
   } catch (err) {
     console.log(err);
     return null;
