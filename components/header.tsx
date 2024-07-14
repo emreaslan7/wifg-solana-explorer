@@ -1,9 +1,12 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "./mode-toggle";
 
 import logo from "@/public/wifg_logo.png";
+
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export default function Header() {
   return (
@@ -14,7 +17,7 @@ export default function Header() {
         </div>
         <div className="flex justify-center gap-2">
           <Button variant={"link"} className="text-lg">
-            <Link href={"#"}>Overview</Link>
+            <Link href={"/"}>Overview</Link>
           </Button>
           <Button variant={"link"} className="text-lg">
             <Link href={"#"}>Transactions</Link>
@@ -24,7 +27,23 @@ export default function Header() {
           </Button>
         </div>
         <div className="flex justify-end gap-2">
-          <Button>Connect Wallet</Button>
+          <Button>
+            <WalletMultiButton
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                whiteSpace: "nowrap",
+                borderRadius: "0.375rem",
+                fontSize: "0.875rem",
+                fontWeight: "500",
+                transition: "color 0.2s",
+                opacity: "0.9",
+                backgroundColor: "var(--primary)",
+                color: "var(--primary-foreground)",
+              }}
+            />
+          </Button>
           <ModeToggle />
         </div>
       </header>

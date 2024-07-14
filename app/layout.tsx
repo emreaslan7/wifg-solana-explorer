@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
+import AppWalletProvider from "@/components/AppWalletProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,10 +28,12 @@ export default function RootLayout({
           themes={["light", "dark", "wifg"]}
           disableTransitionOnChange
         >
-          <div className="container">
-            <Header />
-            {children}
-          </div>
+          <AppWalletProvider>
+            <div className="container">
+              <Header />
+              {children}
+            </div>
+          </AppWalletProvider>
         </ThemeProvider>
       </body>
     </html>

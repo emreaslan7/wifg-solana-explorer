@@ -7,19 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+
 import Link from "next/link";
 
 import { getLastBlockDetails, getTransaction } from "@/actions/block";
 import { Button } from "./ui/button";
 import { revalidatePath } from "next/cache";
-// bir fonksiyon yaz. bu fonksiyon buradaki const transaction = blockDetails?.result.transactions[1];
-// transactionlardan 0'dan 5'e kadar olanları alalım.
-// bu fonksiyonların signatures'larını bu şekilde alalım.
-// const signatures = transaction.transaction.signatures[0];
-// daha sonra bu signaturesları tek tek getTransaction fonksiyonuna gönderelim.
-// oradan dönen transaction detaylatrını arrray içinde return edelim.
 
-// bu arrayi burada map ile dönerek tabloya yazdıralım.
 const getTimeDiff = (blockTime: number) => {
   const date = new Date(blockTime * 1000);
   const now = new Date();
@@ -107,7 +102,9 @@ export const LatestBlockSectionContent = async () => {
                   <TableCell>{tx.signature}</TableCell>
                   <TableCell>{tx.block}</TableCell>
                   <TableCell>{tx.time}</TableCell>
-                  <TableCell className="text-right">{tx.instruction}</TableCell>
+                  <TableCell className="text-right">
+                    <Badge>{tx.instruction}</Badge>
+                  </TableCell>
                   <TableCell className="text-right">{tx.by}</TableCell>
                   <TableCell className="text-right">{tx.fee} SOL</TableCell>
                 </TableRow>

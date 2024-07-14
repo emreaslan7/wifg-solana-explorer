@@ -43,9 +43,7 @@ interface CircularBarProps {
 export const CircularBar: React.FC<CircularBarProps> = (props) => {
   // learn currnet theme
   const { theme, setTheme } = useTheme();
-  console.log("current theme", theme);
 
-  console.log("rateFromserver", props.rateFromServer);
   const [value, setValue] = useState(0);
 
   useEffect(() => {

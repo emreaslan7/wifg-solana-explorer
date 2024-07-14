@@ -6,7 +6,6 @@ const formatNumber = (number: number) => {
 
 export const SolVolumeSectionContent = async () => {
   const info = await getTokenStatsSOL_ONEWEEK();
-  console.log(info);
   const { volume, volumeChange } = info.data[0];
 
   return (

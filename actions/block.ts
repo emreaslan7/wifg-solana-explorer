@@ -35,15 +35,6 @@ export const getBlock = async (block: number) => {
   }
 };
 
-export const getBlocks = async (start: number, end: number) => {
-  const options = fetchoptions("getBlocks", [start, end]);
-
-  fetch(process.env.ALCHEMY_RPC_URL || "", options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-};
-
 export const getRecentBlockhash = async () => {
   const options = fetchoptions("getRecentBlockhash", []);
 
@@ -75,7 +66,6 @@ export const getSupply = async () => {
 
 export const getLastBlockDetails = async () => {
   const recentBlockSlot = await getRecentBlockhash();
-  console.log("recent block slot", recentBlockSlot);
 
   const blockData = await getBlock(recentBlockSlot);
   return blockData;
