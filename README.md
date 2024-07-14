@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WIFG - Dog Wif Hat and Glasses
 
-## Getting Started
+![WIFG](/public/wifg_logo.png)
 
-First, run the development server:
+    WIFG is watching to you!
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Problem
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Solana Blockchain Data Explorer is a sophisticated web application providing users with up-to-date Solana blockchain data. As Web2 applications dominate the digital landscape, transitioning to Web3 technologies requires tools that are both functional and user-friendly.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Solution
 
-## Learn More
+Our tool bridges the gap between Web2 and Web3, offering a seamless user experience that meets modern web usability standards. A well-designed user interface (UI) ensures that users, regardless of technical background, can navigate and use the platform effectively.
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Connect Wallet**: Easily connect your Solana wallet to access personalized blockchain data.
+- **Real-Time Data Retrieval**: Fetch and display up-to-date data from the Solana blockchain quickly and efficiently.
+- **Intuitive Design**: Experience a clean, modern, and responsive user interface that simplifies data exploration and analysis.
+- **Comprehensive Metrics**: Access a wide range of blockchain metrics, including transaction details, block information, and account statistics.
+- **Seamless Navigation**: Enjoy smooth and intuitive navigation with user-friendly controls and clear visualizations.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Technologies Used
 
-## Deploy on Vercel
+- **Next.js**: - [Official Website](https://nextjs.org/)
+- **Shadcn.ui**: - [Official Website](https://ui.shadcn.com/)
+- **Tailwind CSS**: - [Official Website](https://tailwindcss.com/)
+- **Hello Moon**: - [Official Website](https://hellomoon.io/)
+- **Solana Web3.js**: - [GitHub Repository](https://github.com/solana-labs/solana-web3.js)
+- **Alchemy**: - [Official Website](https://www.alchemy.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Story
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The Solana Blockchain Data Explorer was inspired by the playful meme culture, especially "Dog Wif Hat and Glasses" (WIFG). This character adds humor and symbolizes our tool's exploratory nature, with the glasses representing the ability to clearly see and analyze blockchain data.
+
+A high-quality and intuitive user interface (UI) is essential for user engagement. By incorporating fun elements like WIFG, we highlight the importance of a good UI. It ensures that users, regardless of their technical background, can easily navigate the platform and use its features effectively.
+
+## Showcase
+
+[demo video](/public/showcase/wifg-solana-explorer.mp4)
+
+![WIFG](/public/showcase/wifg-01.png)
+
+## Thanks
+
+This project was created in a short time for the Superteam Talent Olympics Tooling Data Explorer/Dashboard challenge.
+
+We would like to thank the [Superteam](https://superteam.fun) for organizing the Talent Olympics and providing this wonderful opportunity. A special thanks to the [Superteam Turkey](https://superteam.fun/turkey) team for their support and encouragement throughout the challenge.
+
+[Follow](https://twitter.com/blockenddev)the developer on Twitter.
